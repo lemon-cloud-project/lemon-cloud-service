@@ -1,0 +1,16 @@
+{
+  "mysql_config": {
+    "host": "db.lemonit.cn",
+    "port": "10042",
+    "username": "lemon_cloud",
+    "password": "lemon_cloud",
+    "schema": "lemon_cloud_service"
+  },
+  "redis_config": {
+    "network": "",
+    "host": "",
+    "port": "",
+    "password": "",
+    "db": ""
+  }
+}
