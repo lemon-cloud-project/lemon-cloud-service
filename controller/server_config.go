@@ -2,7 +2,6 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lemon-cloud-project/lemon-cloud-service/service"
 	"sync"
 )
 
@@ -10,7 +9,6 @@ var ServerConfigControllerInstance *ServerConfigController
 var ServerConfigControllerRegisterOnce sync.Once
 
 type ServerConfigController struct {
-	serverConfigService service.ServerConfigService
 }
 
 func RegisterApiServerConfig(engine *gin.RouterGroup) {

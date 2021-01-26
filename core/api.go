@@ -2,10 +2,10 @@ package core
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lemon-cloud-project/lemon-cloud-commons-golang/logger"
 	"github.com/lemon-cloud-project/lemon-cloud-service/controller"
 	"github.com/lemon-cloud-project/lemon-cloud-service/define"
 	"github.com/lemon-cloud-project/lemon-cloud-service/error_code"
-	"github.com/lemon-cloud-project/lemon-cloud-service/logger"
 	"github.com/lemon-cloud-project/lemon-cloud-service/model"
 	"net/http"
 	"sync"
@@ -41,6 +41,7 @@ func (i *ApiCore) Start(address string) error {
 
 func (i *ApiCore) RegisterApi() {
 	controller.RegisterApiServerConfig(i.needAuthRouterGroup)
+	controller.RegisterApiSystemExtension(i.needAuthRouterGroup)
 }
 
 func (i *ApiCore) CheckAuthHandler() gin.HandlerFunc {
@@ -75,7 +76,7 @@ func (i *ApiCore) checkUrlIsFree(url string) bool {
 func (i *ApiCore) checkAuthToken(ctx *gin.Context) bool {
 	//jwtTokenStr := strings.Split(ctx.Request.Header["Authorization"][0], " ")[1]
 	//return authService.CheckToken(jwtTokenStr)
-	return false
+	return true
 }
 
 func responseAuthError(ctx *gin.Context) {

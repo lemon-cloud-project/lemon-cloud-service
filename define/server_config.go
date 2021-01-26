@@ -6,10 +6,10 @@ type ServerConfigDefine struct {
 }
 
 var serverConfigDefineInstance *ServerConfigDefine
-var serverConfigDefineOnce sync.Once
+var serverConfigDefineInitOnce sync.Once
 
 func ServerConfig() *ServerConfigDefine {
-	serverConfigDefineOnce.Do(func() {
+	serverConfigDefineInitOnce.Do(func() {
 		serverConfigDefineInstance = &ServerConfigDefine{}
 	})
 	return serverConfigDefineInstance

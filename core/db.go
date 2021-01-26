@@ -2,12 +2,12 @@ package core
 
 import (
 	"errors"
+	"github.com/lemon-cloud-project/lemon-cloud-commons-golang/logger"
+	"github.com/lemon-cloud-project/lemon-cloud-commons-golang/utils"
 	"github.com/lemon-cloud-project/lemon-cloud-service/define"
 	"github.com/lemon-cloud-project/lemon-cloud-service/entity"
-	"github.com/lemon-cloud-project/lemon-cloud-service/logger"
 	"github.com/lemon-cloud-project/lemon-cloud-service/model"
 	"github.com/lemon-cloud-project/lemon-cloud-service/service"
-	"github.com/lemon-cloud-project/lemon-cloud-service/utils"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -93,6 +93,9 @@ func fixDataKeyField(db *gorm.DB, field *schema.Field, value reflect.Value) {
 
 func updateDb(db *gorm.DB) {
 	err := db.AutoMigrate(
+		entity.DataDiskEntity{},
+		entity.DomainEntity{},
+		entity.SystemExtensionEntity{},
 		entity.SystemSettingEntity{},
 		entity.UserEntity{})
 	if err != nil {

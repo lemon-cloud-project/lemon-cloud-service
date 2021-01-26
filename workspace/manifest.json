@@ -1,0 +1,9 @@
+{
+  "info": {
+    "key": "cn.lemonit.cloud.ext.storage.localfile",
+    "name": "Local File Storage Extension",
+    "author": "LemonIT.CN",
+    "introduce": "This system extension allows Lemon Cloud to have the ability to use the local directory of the server node as a storage area.",
+    "version": "1.0.0"
+  }
+}
